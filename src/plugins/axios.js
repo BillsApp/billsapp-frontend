@@ -1,9 +1,9 @@
 import axios from 'axios'
-import {useUserStore} from '@/store/user'
+import { useUserStore } from '@/stores/user'
 import router from '@/router'
 
-const urls: { [key: string]: string } = {
-  development: 'http://127.0.0.1:8000/',
+const urls = {
+  development: 'http://127.0.0.1:8000/'
 }
 
 const baseUrl = urls[import.meta.env.MODE]
