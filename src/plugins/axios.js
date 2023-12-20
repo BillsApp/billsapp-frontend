@@ -31,7 +31,7 @@ axiosIns.interceptors.response.use(
     error => {
         const userStore = useUserStore()
 
-        const {config, response} = error
+        const { config, response } = error
         if (response && (response.status === 401)) {
             userStore.userLogout()
             router.push('/login')
