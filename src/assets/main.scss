@@ -1,0 +1,10 @@
+.brand-logo {
+  cursor: pointer;
+  .brand-logo__img {
+    max-height: 70px;
+  }
+  .brand-logo__title {
+    font-size: 40px;
+    font-family: "Luminari", sans-serif;
+  }
+}

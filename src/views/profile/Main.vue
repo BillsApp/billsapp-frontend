@@ -1,9 +1,16 @@
 <script setup>
 import { useRouter } from 'vue-router'
+import { useUserStore } from '@/stores/user'
 
 const router = useRouter()
+const userStore = useUserStore()
 
-const goToLoginPage = () => {
+const goToHomePage = () => {
+  router.push({ name: 'Home' })
+}
+
+const logout = () => {
+  userStore.userLogout()
   router.push({ name: 'Login' })
 }
 </script>
@@ -13,9 +20,15 @@ const goToLoginPage = () => {
     <VContainer>
       <VRow>
 
-        <VCol cols="12">
+        <VCol
+          cols="12"
+          class="d-flex justify-space-between"
+        >
           <!-- Brand logo-->
-          <div class="brand-logo d-flex align-items-center">
+          <div
+            class="brand-logo d-flex align-items-center"
+            @click="goToHomePage"
+          >
             <img
               class="brand-logo__img mr-3"
               src="@/assets/images/logo.svg"
@@ -25,6 +38,14 @@ const goToLoginPage = () => {
               Vision
             </h1>
           </div>
+          <div>
+            <VBtn
+              @click="logout"
+            >
+              <VIcon icon="$logout" />
+              Log Out
+            </VBtn>
+          </div>
           <!-- /Brand logo-->
         </VCol>
 
@@ -32,11 +53,8 @@ const goToLoginPage = () => {
 
       <VRow>
         <h2>
-          Home Page
+          Profile Main Page
         </h2>
-        <VBtn @click="goToLoginPage">
-          Apply Now!
-        </VBtn>
       </VRow>
     </VContainer>
   </div>
@@ -45,4 +63,3 @@ const goToLoginPage = () => {
 <style lang="scss">
 
 </style>
-
